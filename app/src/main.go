@@ -9,7 +9,16 @@ import (
 )
 
 func homeLink(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintf(w, "Hello world")
+
+  // TODO: extract fetching of hostname into single place, executed once per process, not once per request
+  hostname, err := os.Hostname()
+
+  if err != nil {
+    panic(err)
+  }
+
+
+  fmt.Fprintf(w, "Hello world from " + hostname + "<br />\n")
 }
 
 func main(){
