@@ -1,10 +1,11 @@
 package main
 
 import (
+  "os"
   "fmt"
-  "log"
   "net/http"
   "github.com/gorilla/mux"
+  "github.com/gorilla/handlers"
 )
 
 func homeLink(w http.ResponseWriter, r *http.Request) {
@@ -14,5 +15,6 @@ func homeLink(w http.ResponseWriter, r *http.Request) {
 func main(){
   router := mux.NewRouter().StrictSlash(true)
   router.HandleFunc("/", homeLink)
-  log.Fatal(http.ListenAndServe(":8080", router))
+  loggedRouter := handlers.LoggingHandler(os.Stdout, router)
+  http.ListenAndServe(":8080", loggedRouter)
 }

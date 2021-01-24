@@ -4,6 +4,7 @@ WORKDIR /src
 ENV CGO_ENABLED=0
 COPY . .
 RUN go get github.com/gorilla/mux
+RUN go get github.com/gorilla/handlers
 RUN go build -o /app src/main.go
 
 FROM scratch AS bin
