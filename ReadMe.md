@@ -3,3 +3,10 @@
 A purpose of this repository is to keep a track of steps performed during doing a homework from Equal Experts.
 
 I decided to go with *Mini Kube* project.
+
+
+### ToDo
+
+* Introduce secrets management
+* Introduce support for private docker registry
+* Extract base build image into separate creation process so we limit calls like "go get"
