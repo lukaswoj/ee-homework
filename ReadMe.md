@@ -38,3 +38,4 @@ To push out changes more permanently, push out latest image to registry with `ma
 * Introduce secrets management
 * Introduce support for private docker registry
 * Extract base build image into separate creation process so we limit calls like "go get"
+* Make sure to introduce PodAntiAffinity for non-DEV scenarios to prevent our app multiple PODS from being provisioned on same NODE.
