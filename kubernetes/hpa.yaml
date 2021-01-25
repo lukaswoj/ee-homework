@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: app
+  namespace: ee-homework-dev
+spec:
+  maxReplicas: 5
+  minReplicas: 3
+  scaleTargetRef:
+    kind: Deployment
+    name: app
+  targetCPUUtilizationPercentage: 10

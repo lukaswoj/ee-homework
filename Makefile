@@ -1,12 +1,13 @@
 image_name = lukaswoj/ee-homework
 
 minikube-start:
-	minikube start --addons=ingress
+	minikube start --addons=ingress --addons=metrics-server
 apply-k8s-resources:
 	kubectl apply -f kubernetes/namespace.yaml
 	kubectl apply -f kubernetes/deployment.yaml
 	kubectl apply -f kubernetes/service.yaml
 	kubectl apply -f kubernetes/ingress.yaml
+	kubectl apply -f kubernetes/hpa.yaml
 image-build:
 	docker build -t ${image_name} ./app
 image-push:

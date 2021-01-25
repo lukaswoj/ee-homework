@@ -18,7 +18,7 @@ func homeLink(w http.ResponseWriter, r *http.Request) {
   }
 
 
-  fmt.Fprintf(w, "Hello world from " + hostname + "<br />\n")
+  fmt.Fprintf(w, "Hello world from " + hostname + " on node " + os.Getenv("NODE_IP") + " <br />\n")
 }
 
 func main(){
