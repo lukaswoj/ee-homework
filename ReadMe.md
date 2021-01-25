@@ -39,3 +39,4 @@ To push out changes more permanently, push out latest image to registry with `ma
 * Introduce support for private docker registry
 * Extract base build image into separate creation process so we limit calls like "go get"
 * Make sure to introduce PodAntiAffinity for non-DEV scenarios to prevent our app multiple PODS from being provisioned on same NODE.
+* When needed for any reason, put extra effort into enabling multiple nodes minikube setup with application spread among many nodes - to more accurately simulate production environment. Out of the box, just increasing nodes count does not work.
