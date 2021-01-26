@@ -22,7 +22,7 @@ To make test app available in the browser you need to modify your host `/etc/hos
 If you want to introduce changes to image used for deployment, you should set your env up and running and then:
 1. Change imagePullPolicy for app deployment to Never: `kubectl -nee-homework-dev patch deployment app -p '{"spec":{"template":{"spec":{"containers":[{"name":"ee-homework","imagePullPolicy":"Never"}]}}}}`
 2. import minikube docker env variables: `eval $(minikube docker-env)`
-3. build image with minikube docker daemon context: `cd app; make image-build`
+3. build image with minikube docker daemon context: `make image-build`
 4. restart pods with: `make restart-pods`
 
 At this point you should have latest local changes baked in into image built inside minikube docker space, available for minikube cluster and already applied.
