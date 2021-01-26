@@ -13,7 +13,7 @@ In order to start this project you will need minikube and kubectl installed so C
 2. Run `make apply-k8s-resources`
 
 Now you can test with curl using:
-`curl -h 'Host: ee-homework-app.local' http://$(minikube ip)/`
+`curl -H 'Host: ee-homework-app.local' http://$(minikube ip)/`
 
 To make test app available in the browser you need to modify your host `/etc/hosts` file and add entry for `ee-homework-app.local` pointing to whatever `minikube ip` returns.
 
@@ -22,7 +22,7 @@ To make test app available in the browser you need to modify your host `/etc/hos
 If you want to introduce changes to image used for deployment, you should set your env up and running and then:
 1. Change imagePullPolicy for app deployment to Never: `kubectl -nee-homework-dev patch deployment app -p '{"spec":{"template":{"spec":{"containers":[{"name":"ee-homework","imagePullPolicy":"Never"}]}}}}`
 2. import minikube docker env variables: `eval $(minikube docker-env)`
-3. build image with minikube docker daemon context: `cd app; make build`
+3. build image with minikube docker daemon context: `cd app; make image-build`
 4. restart pods with: `make restart-pods`
 
 At this point you should have latest local changes baked in into image built inside minikube docker space, available for minikube cluster and already applied.
